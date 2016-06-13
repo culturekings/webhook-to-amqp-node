@@ -20,7 +20,6 @@ http.createServer(function(request, response) {
         var now = (new Date(Date.now())).toISOString();
         console.log('Received webhook id: ' + payload.webhook.id + ' at ' + now);
 
-        /*
         amqp.connect(process.env.AMQP_SERVER, function(err, conn) {
             conn.createChannel(function(err, ch) {
 
@@ -40,9 +39,6 @@ http.createServer(function(request, response) {
                 response.end('ok');
             });
         });
-        */
-                response.writeHead(200, {'Content-Type': 'text/plain'});
-                response.end('ok');
 
     });
 }).listen((process.env.PORT || 5000));
