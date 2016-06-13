@@ -3,6 +3,9 @@ var url = require('url');
 var amqp = require('amqplib/callback_api');
 
 http.createServer(function(request, response) {
+    var now = (new Date(Date.now())).toISOString();
+    console.log('Server started at ' + now);
+
     var headers = request.headers;
     var method = request.method;
     var requestUrl = url.parse(request.url, true);
@@ -14,6 +17,9 @@ http.createServer(function(request, response) {
     }).on('end', function() {
 
         body = Buffer.concat(body).toString();
+        payload = JSON.parse(body);
+
+        console.log('Received webhook id: ' + payload.id + ' at ' + now);
 
         amqp.connect(process.env.AMQP_SERVER, function(err, conn) {
             conn.createChannel(function(err, ch) {
