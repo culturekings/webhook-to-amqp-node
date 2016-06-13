@@ -19,7 +19,7 @@ http.createServer(function(request, response) {
         body = Buffer.concat(body).toString();
         payload = JSON.parse(body);
 
-        console.log('Received webhook id: ' + payload.id + ' at ' + now);
+        console.log('Received webhook id: ' + payload.webhook.id + ' at ' + now);
 
         amqp.connect(process.env.AMQP_SERVER, function(err, conn) {
             conn.createChannel(function(err, ch) {
