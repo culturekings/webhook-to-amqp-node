@@ -1,0 +1,26 @@
+{
+  "name": "webhook-to-amqp-node",
+  "version": "1.0.0",
+  "description": "Send Webhooks to a RabbitMQ Queue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "5.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://evulse@github.com/culturekings/webhook-to-amqp-node.git"
+  },
+  "author": "Mike Angell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/culturekings/webhook-to-amqp-node/issues"
+  },
+  "homepage": "https://github.com/culturekings/webhook-to-amqp-node#readme",
+  "dependencies": {
+    "amqplib": "^0.4.1"
+  }
+}
